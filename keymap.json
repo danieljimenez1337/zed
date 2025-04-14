@@ -1,0 +1,158 @@
+[
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // Put key bindings here if you want them to work in normal & visual mode.
+      "space g s": "git::ToggleStaged",
+      "space g r": "git::Restore"
+    }
+  },
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      // File finder
+      "space space": "file_finder::Toggle",
+      "space p": "projects::OpenRecent",
+      // Project search
+      "shift-y": ["workspace::SendKeystrokes", "y $"], // Use neovim's yank behavior: yank to end of line.
+      "space g g": "git_panel::ToggleFocus",
+      "space a": "workspace::ToggleRightDock",
+      "space g l": [
+        "task::Spawn",
+        { "task_name": "start_lazygit", "reveal_target": "center" }
+      ],
+      "space g f": [
+        "task::Spawn",
+        { "task_name": "start_lazygit_file_log", "reveal_target": "center" }
+      ],
+      "space r c": [
+        "task::Spawn",
+        { "task_name": "start_rails_console", "reveal_target": "center" }
+      ],
+      "space r p": [
+        "task::Spawn",
+        { "task_name": "start_posting", "reveal_target": "center" }
+      ],
+      "space g y": "editor::CopyPermalinkToLine",
+      "space g B": "editor::OpenPermalinkToLine",
+      "space c a": "editor::ToggleCodeActions",
+      "space c p": "workspace::CopyRelativePath",
+      "space e": "workspace::ToggleLeftDock",
+      "space m u": "editor::ExpandExcerptsUp",
+      "space m d": "editor::ExpandExcerptsDown",
+      "space m n": "search::SelectNextMatch",
+      "space m p": "search::SelectPreviousMatch",
+      "[ b": "pane::GoBack",
+      "] b": "pane::GoForward",
+      "space g b": "git::Blame",
+      "space z k": "zed::OpenKeymap",
+      "space z t": "zed::OpenTasks",
+      "space z s": "zed::OpenSettings",
+      "space t r": "editor::SpawnNearestTask",
+      "space t a": "task::Rerun"
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore" // In insert mode, make jk escape to normal mode.
+    }
+  },
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      // Put key bindings here (in addition to the context above) if you want them to
+      // work when no editor exists.
+      "space space": "file_finder::Toggle",
+      "space /": "pane::DeploySearch",
+      "space p": "projects::OpenRecent"
+    }
+  },
+  {
+    "context": "Editor || workspace",
+    "bindings": {
+      "ctrl-j": "pane::ActivatePreviousItem",
+      "ctrl-k": "pane::ActivateNextItem",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight"
+    }
+  },
+  {
+    "context": "Editor && showing_completions",
+    "bindings": {
+      "ctrl-y": "editor::ConfirmCompletion"
+    }
+  },
+  {
+    "context": "vim_mode == normal || vim_mode == visual",
+    "bindings": {
+      "s": ["vim::PushSneak", {}],
+      "S": ["vim::PushSneakBackward", {}],
+      "space /": "pane::DeploySearch"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !VimObject",
+    "bindings": {
+      "shift-s": ["vim::PushAddSurrounds", {}]
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "o": "menu::Confirm",
+      "r": "project_panel::Rename",
+      "x": "project_panel::Cut",
+      "y": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "d": "project_panel::Delete",
+      "a": "project_panel::NewFile",
+      "shift-a": "project_panel::NewDirectory",
+      "shift-y": "workspace::CopyRelativePath",
+      "g y": "workspace::CopyPath",
+      "escape": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "Editor || Terminal",
+    "bindings": {
+      "ctrl-/": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-r": ["terminal::SendKeystroke", "ctrl-r"]
+    }
+  },
+  {
+    "context": "GitPanel",
+    "bindings": {
+      "escape": "git_panel::Close",
+      "c": "git::Commit",
+      "f": "git::Fetch",
+      "u": "git::Uncommit",
+      "p": "git::Pull",
+      "P": "git::Push",
+      "b": "git::Branch",
+      "a": "git::StageAll",
+      "A": "git::UnstageAll"
+    }
+  },
+  {
+    "context": "AssistantPanel",
+    "use_key_equivalents": true,
+    "bindings": {
+      "cmd-k d": "workspace::ToggleRightDock",
+      "cmd-k c": "assistant::CopyCode",
+      "cmd-shift-e": "project_panel::ToggleFocus",
+      "cmd-g": "search::SelectNextMatch",
+      "cmd-shift-g": "search::SelectPreviousMatch",
+      "cmd-alt-/": "assistant::ToggleModelSelector",
+      "cmd-k h": "assistant::DeployHistory",
+      "cmd-k l": "assistant::DeployPromptLibrary",
+      "cmd-t": "assistant::NewChat",
+      "cmd-n": "assistant::NewChat"
+    }
+  }
+]

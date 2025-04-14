@@ -1,0 +1,45 @@
+[
+  {
+    "label": "start_lazygit",
+    "command": "lazygit -p $ZED_WORKTREE_ROOT",
+    "hide": "on_success",
+    "shell": {
+      "program": "sh"
+    }
+  },
+  {
+    "label": "start_lazygit_file_log",
+    "command": "lazygit",
+    "args": ["-f", "\"$ZED_RELATIVE_FILE\""],
+    "hide": "on_success",
+    "shell": {
+      "program": "sh"
+    }
+  },
+  {
+    "label": "start_rails_console",
+    "command": "rails console",
+    "hide": "on_success"
+  },
+  {
+    "label": "test $ZED_RELATIVE_FILE:$ZED_ROW",
+    "command": "/Users/daniel.jimenez/.config/zed/run_test_ruby.sh",
+    "args": ["\"$ZED_RELATIVE_FILE\"", "$ZED_ROW"],
+    "tags": ["ruby-test"]
+  },
+  {
+    "label": "terminal_1",
+    "command": "tmux",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "start_posting",
+    "command": "posting",
+    "args": ["--collection", "~/postings/lawpay"],
+    "hide": "on_success",
+    "shell": {
+      "program": "sh"
+    }
+  }
+]

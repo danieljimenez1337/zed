@@ -1,31 +1,92 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "show_edit_predictions": false,
   "assistant": {
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-latest"
+      "provider": "openai",
+      "model": "gpt-4o"
     },
     "version": "2"
   },
-  "features": {
-    "edit_prediction_provider": "zed"
-  },
-  "telemetry": {
-    "diagnostics": true
-  },
-  "vim_mode": true,
-  "ui_font_size": 16,
-  "buffer_font_size": 16,
+  "tab_size": 2,
+  "base_keymap": "VSCode",
   "theme": {
     "mode": "system",
-    "light": "Gruvbox Light",
-    "dark": "Gruvbox Dark"
+    "dark": "Gruvbox Dark",
+    "light": "Gruvbox Light Soft"
+  },
+  "buffer_font_family": "CommitMono",
+  "restore_on_startup": "last_session",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "vim_mode": true,
+  "ui_font_size": 17,
+  "buffer_font_size": 20.0,
+  "show_wrap_guides": true,
+  "wrap_guides": [100],
+  "format_on_save": "off",
+  "vim": {
+    "use_multiline_find": true,
+    "use_smartcase_find": true
+  },
+  "relative_line_numbers": true,
+  "vertical_scroll_margin": 8,
+  "scrollbar": {
+    "show": "never"
+  },
+  "terminal": {
+    "line_height": {
+      "custom": 1
+    }
+  },
+  "languages": {
+    "Ruby": {
+      "language_servers": ["solargraph", "rubocop", "!ruby-lsp"],
+      "format_on_save": "off"
+    },
+    "TypeScript": {
+      "format_on_save": "off"
+    },
+    "TSX": {
+      "format_on_save": "off"
+    },
+    "JavaScript": {
+      "format_on_save": "off"
+    },
+    "Java": {
+      "enable_language_server": false
+    }
+  },
+  "lsp": {
+    // "ruby-lsp": {
+    //   "initialization_options": {
+    //     "enabledFeatures": {
+    //       // This disables diagnostics
+    //       "diagnostics": false
+    //     }
+    //   }
+    // },
+    "rubocop": {
+      "settings": {
+        "use_bundler": false
+      }
+    },
+    "solargraph": {
+      "settings": {
+        "use_bundler": false
+      }
+    }
+  },
+  "pane_split_direction_vertical": "right",
+  "diagnostics": {
+    "include_warnings": true,
+    "inline": {
+      "enabled": true,
+      "update_debounce_ms": 150,
+      "padding": 4,
+      "min_column": 0,
+      "max_severity": null
+    }
   }
 }
